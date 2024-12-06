@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link rel="stylesheet" href="post.css">
+ 
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+<nav>
+    <img class="img" src="images/Ellipse 1.png" alt="">
+   <img class="Coranu" src="images/Coranu.png" alt="">
+
+    
+   <div class="search-container">
+    <input type="text" placeholder="Search Courses...">
+   </div>
+<div class="dropdown-container">
+    <label for="dropdown">All Categories:</label>
+    <select id="dropdown">
+        <option value="option1">IT Course</option>
+        <option value="option2">Web Development</option>
+        <option value="option3">Software Engineer</option>
+        <option value="option4">Data Base</option>
+    </select>
+  <button>Search</button>
+</div>
+
+<div class="login">
+    <a href="./signup.html"><button id="login">Login/Signin</a></button>
+</div>
+
+
+
+<h1 class="ideas">Thoughts,Ideas and Stories</h1>
+<p class="para">A space where creativity flows, ideas take shape, and stories come to life. Dive in, explore, and connect with insights that inspire and resonate.</p>
+<img class="trending" src="images/Trending Topics.png" alt="">
+
+<div class="drop">
+    <img src="images/Frame 17.png" alt="">
+    <img src="images/Frame 20.png" alt="">
+    <img src="images/Frame 21.png" alt="">
+    <img src="images/Frame 18.png" alt="">
+    <img src="images/Frame 19.png" alt="">
+</div>
+
+<img class="blog" src="images/Blog Topics.png" alt="">
+
+<ol>
+    <li>Company</li>
+    <li>Design</li>
+    <li>Technology</li>
+    <li>Crypto</li>
+    <li>Artificial Intelligence</li>
+    <li>Work</li>
+</ol>
+<div class="power">
+
+    <h2 id="it">Power Trading Tools and Features For <br>Experienced Investors</h2>
+<img class="new" src="images/I’m always trying to think of new and interesting business ideas. I generally try to come up with ideas by thinking of what I would want to do or see in the world. Then, I try to find reasons why it wouldn’t work....png" alt=""></div>
+
+<img class="tool" src="images/Frame 22.png" alt="">
+<img class="mark" src="images/By Mark Tuchel.png" alt="">
+
+    
+
+<div class="java">
+
+    <h2 id="on">Master Javascript:10 Essential Tips <br>Every DeveloperMust Know</h2>
+<img class="new" src="images/I’m always trying to think of new and interesting business ideas. I generally try to come up with ideas by thinking of what I would want to do or see in the world. Then, I try to find reasons why it wouldn’t work....png" alt=""></div>
+
+
+<img class="ai" src="images/Frame 21.png" alt="">
+<img class="mark" src="images/By Mark Tuchel.png" alt="">
+</div>
+
+<footer>
+    <img class="stay" src="images/Stay up to date.png" alt="">
+
+<h2 class="join">Join Our News Letter</h2>
+
+<img class="enter" src="images/Enter your email...png" alt="">
+<button class="submit">Submit</button>
+
+
+</footer>
+<!-- 
+<img class="can" src="images/_You can unsubscribe anytime.png" alt=""> -->
+<img class="frame" src="images/Frame 27.png" alt="">
+
+
+
+
+
+
+
+<script>
+    // Handle form submission
+    document.getElementById("postForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Get post content
+        const postContent = document.getElementById("postContent").value;
+
+        if (postContent.trim() === "") {
+            alert("Post cannot be empty!");
+            return;
+        }
+
+        // Retrieve existing posts from LocalStorage
+        const existingPosts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        // Add the new post
+        existingPosts.push({
+            content: postContent,
+            timestamp: new Date().toISOString(),
+        });
+
+        // Save back to LocalStorage
+        localStorage.setItem("posts", JSON.stringify(existingPosts));
+
+        // Clear the form
+        document.getElementById("postContent").value = "";
+
+        // Redirect to the post page
+        window.location.href = "post.html";
+    });
+</script>
+
+<script src="sign.js"></script>
+ 
+</body>
+</html>

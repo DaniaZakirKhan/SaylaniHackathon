@@ -1,0 +1,221 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fb.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
+    <title>Document</title>
+    
+    <style>
+        body{
+          background-image: url('images/premium_photo-1668473366952-45f06fbf6492.avif');
+        }
+        </style>
+</head>
+
+</head>
+<body>
+    
+
+    
+<!-- <img class="fb" src="images/Facebook.png" alt="">
+<h1 class="facebook">facebook</h1> -->
+<!-- 
+
+<div class="images">
+
+<img class="default" src="images/account_3033143.png" alt="">
+<h3 class="david">David</h3>
+
+<select name="audience" id="audience">
+
+    <option value="Public">Public</option>
+    <option value="Friends">Friends</option>
+    <option value="Friends except..">Friends except...</option>
+</select>
+
+<div class="holder">
+<input type="text" placeholder="What's in your mind" name="name" id="place">
+
+
+
+<button id="postButton">Post</button>
+</div>
+
+
+
+<div id="postDisplay"></div>
+ -->
+
+<!-- </div> -->
+
+
+<div class="container">
+
+    <div class="wrapper">
+
+        <section class="post">
+            <header>Create Post</header>
+            <form action="#">
+                <div class="content">
+                    <img src="images/account_3033143.png" alt="">
+
+                    <div class="details">
+                        <p>David</p>
+                        <div class="privacy">
+                            <i class=" 	fas fa-user-alt"></i>
+                            <span>Friends</span>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <textarea placeholder="What's on Your mind,David?" required></textarea>
+                <div class="theme-emoji">
+                    <img src="images/theme.svg" alt="">
+                    <img src="images/smile.svg" alt="">
+                </div>
+                    <div class="options">
+
+                        <p>Add to Your Post</p>
+                        <ul class="list">
+<li><img src="images/gallery.svg" alt=""></li>
+<li><img src="images/tag.svg" alt=""></li>
+ <li><img src="images/emoji.svg" alt=""></li>
+    <li><img src="images/mic.svg" alt=""></li>
+                           <li><img src="images/more.svg" alt=""></li>
+                        </ul>
+                    </div>
+                  <a href="./index.html"> <button >Post</a></button>
+                
+            </form>
+        </section>
+        <section class="audience">
+            <header>
+                <div class="arrow-back"><i class='fas fa-angle-left'></i></div>
+                <p>Select audience</p>
+            </header>
+            <div class="content">
+                <p>Who can see your post?</p>
+                <span>Your post will show up in News Feed , on your profile and in search results.</span>
+            </div>
+            <ul class="list">
+                <li>
+                    <div class="column">
+                        <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                        <div class="details">
+                            <p>Public</p>
+                            <span>Anyone on or off Facebook</span>
+                        </div>
+
+                    </div>
+                    <div class="radio"></div>
+                </li>
+                <li>
+                <div class="column">
+                    <div class="icon"><i class="fas fa-user-friends"></i></div>
+                    <div class="details">
+                        <p>Friends</p>
+                        <span>Your frinds on Facebook</span>
+                    </div>
+
+                </div>
+                <div class="radio"></div></li>
+                <li>
+                <div class="column">
+                    <div class="icon"><i class="fas fa-user"></i></div>
+                    <div class="details">
+                        <p>Specific</p>
+                        <span>Only show to some friends</span>
+                    </div>
+
+                </div>
+                <div class="radio"></div></li>
+                <li>
+                <div class="column">
+                    <div class="icon"><i class="fas fa-lock"></i></div>
+                    <div class="details">
+                        <p>Only me</p>
+                        <span>Only you can see your post</span>
+                    </div>
+
+                </div>
+                <div class="radio"></div></li>
+                <li>
+                <div class="column">
+                    <div class="icon"><i class="fas fa-cog"></i></div>
+                    <div class="details">
+                        <p>Custom</p>
+                        <span>include and exclude friends</span>
+                    </div>
+
+                </div>
+                <div class="radio"></div></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+    
+ 
+     <script>
+       const container = document.querySelector(".container"),
+       privacy = container.querySelector(".post .privacy"),
+       arrowBack = container.querySelector(".audience .arrow-back");
+ 
+       privacy.addEventListener("click", () => {
+         container.classList.add("active");
+       });
+ 
+       arrowBack.addEventListener("click", () => {
+         container.classList.remove("active");
+       });
+
+
+
+
+
+
+  
+        // Load posts from LocalStorage
+        const posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        // Reference to the post list container
+        const postList = document.getElementById("postList");
+
+        // Check if there are any posts
+        if (posts.length === 0) {
+            postList.innerHTML = "<p>No posts yet. Go back and create one!</p>";
+        } else {
+            // Loop through the posts and display them
+            posts.forEach(post => {
+                const postElement = document.createElement("div");
+                postElement.className = "post";
+
+                postElement.innerHTML = `
+                    <p>${post.content}</p>
+                    <small>${new Date(post.timestamp).toLocaleString()}</small>
+                    <hr>
+                `;
+                postList.appendChild(postElement);
+            });
+        }
+    
+     </script>
+      
+   </body>
+ </html>
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   
+    
+</body>
+</html>
